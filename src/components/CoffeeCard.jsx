@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
+const CoffeeCard = ({ coffee, coffeesFun, setCoffees }) => {
   const {
     _id,
     name,
@@ -24,19 +24,21 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:8000/coffee/${_id}`, {
+        fetch(`https://espresso-server-eight.vercel.app/coffee/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             Swal.fire({
               title: "Deleted!",
               text: "Your Coffee has been deleted.",
               icon: "success",
             });
           });
-        const remainingCoffee = coffees.filter((coffee) => coffee._id !== _id);
+        const remainingCoffee = coffeesFun.filter(
+          (coffee) => coffee._id !== _id
+        );
         setCoffees(remainingCoffee);
       }
     });

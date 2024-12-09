@@ -37,7 +37,7 @@ const UpdateCoffee = () => {
       photoURL,
     };
 
-    fetch(`http://localhost:8000/coffee/${_id}`, {
+    fetch(`https://espresso-server-eight.vercel.app/coffee/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -46,7 +46,7 @@ const UpdateCoffee = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("success", data);
+        // console.log("success", data);
         if(data.modifiedCount){
             Swal.fire({
                 title: "success!",

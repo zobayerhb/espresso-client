@@ -17,9 +17,9 @@ const SignUp = () => {
 
     userSignUp(email, password)
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
         // users data send to database
-        fetch("http://localhost:8000/users", {
+        fetch("https://espresso-server-eight.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -28,7 +28,7 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.insertedId) {
               Swal.fire({
                 title: "success!",
@@ -41,7 +41,7 @@ const SignUp = () => {
           });
       })
       .catch((err) => {
-        console.log(err.message);
+        // console.log(err.message);
       });
   };
 

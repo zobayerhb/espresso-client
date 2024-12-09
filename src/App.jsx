@@ -4,9 +4,9 @@ import CoffeeCard from "./components/CoffeeCard";
 import { useState } from "react";
 
 function App() {
-  const loadedCoffee = useLoaderData();
-  const [coffees, setCoffees] = useState(loadedCoffee);
-  console.log(loadedCoffee);
+  const loadedCoffees = useLoaderData()
+  const [coffees, setCoffees] = useState(loadedCoffees);
+  // console.log(loadedCoffees);
 
   return (
     <>
@@ -19,7 +19,7 @@ function App() {
             key={coffee._id}
             coffee={coffee}
             setCoffees={setCoffees}
-            coffees={coffees}
+            coffeesFun={coffees}
           ></CoffeeCard>
         ))}
       </div>

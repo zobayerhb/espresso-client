@@ -9,15 +9,15 @@ const SignIn = () => {
 
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     userSignIn(email, password)
       .then((data) => {
-        console.log(data.user);
+        // console.log(data.user);
         const lastSignInTime = data?.user?.metadata?.lastSignInTime;
         const emailInfo = { email, lastSignInTime };
 
         // update data user sign in
-        fetch("http://localhost:8000/users", {
+        fetch("https://espresso-server-eight.vercel.app/users", {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
@@ -26,11 +26,11 @@ const SignIn = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
           });
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
       });
   };
   return (

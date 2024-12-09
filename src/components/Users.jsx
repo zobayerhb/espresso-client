@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 const Users = () => {
   const loadedUsers = useLoaderData();
-  console.log(loadedUsers);
+  // console.log(loadedUsers);
   const [users, setUsers] = useState(loadedUsers);
 
   const handleUserDelete = (_id) => {
@@ -19,7 +19,7 @@ const Users = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // delete user from users API's
-        fetch(`http://localhost:8000/users/${_id}`, {
+        fetch(`https://espresso-server-eight.vercel.app/users/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

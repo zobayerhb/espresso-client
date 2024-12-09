@@ -21,10 +21,10 @@ const AddCoffee = () => {
       details,
       photoURL,
     };
-    console.log(coffeeData);
+    // console.log(coffeeData);
 
     // send data on server
-    fetch("http://localhost:8000/coffee", {
+    fetch("https://espresso-server-eight.vercel.app/coffee", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -33,7 +33,7 @@ const AddCoffee = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "success!",
